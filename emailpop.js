@@ -1,17 +1,17 @@
 $.fn.emailpop = function() {
-	if(!$("#emailpop").length){
+	if (!$("#emailpop").length) {
 		$("body").append('<ul id="emailpop" class="autopop"></ul>');
 		$("#emailpop").on("mouseover", "li:not(:first)", function() {
 			$(this).addClass("pop").siblings(".pop").removeClass("pop");
 		}).on("mousedown", "li:not(:first)", function() {
-			$("#"+$(this).parent().hide().attr("data-bind")).val($(this).text());
+			$("#" + $(this).parent().hide().attr("data-bind")).val($(this).text());
 		});
 	}
 	var list = ["gmail.com", "sina.com", "163.com", "qq.com", "126.com", "vip.sina.com", "sina.cn", "hotmail.com", "sohu.com", "yahoo.cn", "139.com", "wo.com.cn", "189.cn", "21cn.com"],
 		l = list.length,
 		$pop = $("#emailpop"),
 		$bind, delay;
-		
+
 	var resize = function() {
 		var offset = $bind.offset();
 		$pop.css({
@@ -20,16 +20,15 @@ $.fn.emailpop = function() {
 			width: $bind.outerWidth()
 		});
 	}
-	return $(this).attr("autocomplete", "off").each(function(i){
-		var $t=$(this).on({
+	return $(this).attr("autocomplete", "off").each(function(i) {
+		var $t = $(this).on({
 			focus: function() {
 				$bind = $t;
-				if($bind.attr("id"))
-					$pop.attr("data-bind",$bind.attr("id"));
-				else{
-					var id="emailpop"+(Math.random()+"").substr(2,9)+i*9;
-					$bind.attr("id",id)
-					$pop.attr("data-bind",id);
+				if ($bind.attr("id")) $pop.attr("data-bind", $bind.attr("id"));
+				else {
+					var id = "emailpop" + (Math.random() + "").substr(2, 9) + i * 9;
+					$bind.attr("id", id)
+					$pop.attr("data-bind", id);
 				}
 				resize();
 				$(window).on("resize", resize);
