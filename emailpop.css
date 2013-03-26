@@ -1,0 +1,8 @@
+.autopop{position: absolute;background: #fff;border: 1px #ddd solid;box-shadow: 0px 1px 4px #ccc inset;border-radius: 3px;color: #999;z-index: 19;display: none;}
+.autopop li{height: 24px;padding: 0 6px;cursor: pointer;overflow: hidden;}
+.autopop li.notpop{cursor: default;}
+.autopop li b{font-weight: normal;color: #333;}
+.autopop li.b{height:32px;line-height: 32px;background: #eee;border-top: 1px #ccc solid;text-align: center;}
+.autopop li.b b{font-size: 14px;color:#333;}
+.autopop li.bt{border-top: 1px #ccc solid}
+.autopop li.pop{background: #dee}
