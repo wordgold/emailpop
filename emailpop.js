@@ -10,16 +10,15 @@ $.fn.emailpop = function() {
 	var list = ["gmail.com", "sina.com", "163.com", "qq.com", "126.com", "vip.sina.com", "sina.cn", "hotmail.com", "sohu.com", "yahoo.cn", "139.com", "wo.com.cn", "189.cn", "21cn.com"],
 		l = list.length,
 		$pop = $("#emailpop"),
-		$bind, delay;
-
-	var resize = function() {
-		var offset = $bind.offset();
-		$pop.css({
-			left: offset.left,
-			top: offset.top + $bind.outerHeight() + 2,
-			width: $bind.outerWidth()
-		});
-	}
+		$bind, delay,
+		resize = function() {
+			var offset = $bind.offset();
+			$pop.css({
+				left: offset.left,
+				top: offset.top + $bind.outerHeight() + 2,
+				width: $bind.outerWidth()
+			});
+		}
 	return $(this).attr("autocomplete", "off").each(function(i) {
 		var $t = $(this).on({
 			focus: function() {
