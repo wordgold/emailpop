@@ -8,16 +8,16 @@
 
 这是一个jquery插件，使用方法：
 
-'''js
+```js
 	$("Selectors").emailpop();
-'''
+```
 
 由于表现和逻辑分离，使用前请自行导入或修改 **emailpop.css** 文件内容。
 
 **为防止IE6崩溃，请在页面加载完毕后执行。**
 
-'''js
+```js
 	$(function(){
 		$("Selectors").emailpop();
 	});
-'''
+```
