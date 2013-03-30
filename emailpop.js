@@ -2,14 +2,13 @@ $.fn.emailpop = function() {
 	if (!$("#emailpop").length) {
 		$("body").append('<ul id="emailpop" class="autopop"></ul>');
 	}
-	$("#emailpop").on("mouseover", "li:not(:first)", function() {
-		$(this).addClass("pop").siblings(".pop").removeClass("pop");
-	}).on("mousedown", "li:not(:first)", function() {
-		$("#" + $(this).parent().hide().attr("data-bind")).val($(this).text());
-	});
 	var list = ["gmail.com", "sina.com", "163.com", "qq.com", "126.com", "vip.sina.com", "sina.cn", "hotmail.com", "sohu.com", "yahoo.cn", "139.com", "wo.com.cn", "189.cn", "21cn.com"],
 		l = list.length,
-		$pop = $("#emailpop"),
+		$pop = $("#emailpop").off("li").on("mouseover", "li:not(:first)", function() {
+			$(this).addClass("pop").siblings(".pop").removeClass("pop");
+		}).on("mousedown", "li:not(:first)", function() {
+			$("#" + $(this).parent().hide().attr("data-bind")).val($(this).text());
+		}),
 		$bind, delay,
 		resize = function() {
 			var offset = $bind.offset();
