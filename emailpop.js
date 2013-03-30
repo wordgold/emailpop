@@ -7,7 +7,8 @@ $.fn.emailpop = function() {
 		$pop = $("#emailpop").off("li").on("mouseover", "li:not(:first)", function() {
 			$(this).addClass("pop").siblings(".pop").removeClass("pop");
 		}).on("mousedown", "li:not(:first)", function() {
-			$("#" + $(this).parent().hide().attr("data-bind")).val($(this).text());
+			$pop.hide();
+			$bind.val($(this).text());
 		}),
 		$bind, delay,
 		resize = function() {
@@ -22,12 +23,6 @@ $.fn.emailpop = function() {
 		var $t = $(this).on({
 			focus: function() {
 				$bind = $t;
-				if ($bind.attr("id")) $pop.attr("data-bind", $bind.attr("id"));
-				else {
-					var id = "emailpop" + (Math.random() + "").substr(2, 9) + i * 9;
-					$bind.attr("id", id)
-					$pop.attr("data-bind", id);
-				}
 				resize();
 				$(window).on("resize", resize);
 			},
