@@ -24,10 +24,9 @@ $.fn.emailpop = function() {
 	return $(this).attr("autocomplete", "off").each(function() {
 		var $t = $(this).on({
 			focus: function() {
-				$bind = $t;
+				$bind = $t.trigger("keydown");
 				resize();
 				$(window).on("resize", resize);
-				$t.trigger("keydown");
 			},
 			keydown: function(e) {
 				switch (e.which) {
@@ -73,12 +72,12 @@ $.fn.emailpop = function() {
 								l = $pop.html(html).show().find("li").length;
 							} else $pop.hide();
 						}, 99)
+				}
+			},
+			blur: function() {
+				$pop.hide();
+				$(window).off("resize", resize);
 			}
-		},
-		blur: function() {
-			$pop.hide();
-			$(window).off("resize", resize);
-		}
 		})
 	})
 }
