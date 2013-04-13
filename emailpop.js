@@ -5,7 +5,8 @@ $.fn.emailpop = function() {
 	var $bind, delay, rsDelay, l,
 	list = ["gmail.com", "sina.com", "163.com", "qq.com", "126.com", "vip.sina.com", "sina.cn", "hotmail.com", "sohu.com", "yahoo.cn", "139.com", "wo.com.cn", "189.cn", "21cn.com"],
 		$pop = $("#emailpop").off("li").on("mouseover", "li:not(:first)", function() {
-			$(this).addClass("pop").siblings(".pop").removeClass("pop");
+			$pop.find("li.pop").removeClass("pop");
+			$(this).addClass("pop");
 		}).on("mousedown", "li:not(:first)", function() {
 			$pop.hide();
 			$bind.val($(this).text());
