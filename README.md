@@ -4,6 +4,8 @@
 
 在HTML页面文本框内输入Email 时动态提示常见后缀。
 
+[View Demo](http://rawgithub.com/wordgold/emailpop/master/demo.html)
+
 ****************************************
 
 ###使用方法
